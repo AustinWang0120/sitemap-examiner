@@ -1,66 +1,20 @@
-### 部分 1：创建 RESTful API 服务（使用 Node.js 和 Express）
+**Q: How does your system work? (if not addressed in comments in source)**
+A: The system is a full-stack application that consists of a frontend created with React and a backend developed using Express. The frontend allows the user to input a SKU and sends a request to the backend. The backend then fetches data from the provided sitemap XML, finds the URL associated with the SKU, and extracts the product details such as title, author, and price from the HTML of the found URL. The details are then sent back to the frontend and displayed to the user.
 
-#### 1. 环境配置
+**Q: How could you scale your system to search across all sitemap files?**
+A: To scale the system to search across all sitemap files, I would implement parallel processing or distribute the search task across multiple servers. Utilizing a more efficient XML parsing method, caching frequent queries, and creating an index of the sitemaps could also help in speeding up the search across multiple sitemap files.
 
-- 安装 Node.js。
-- 使用 Express Generator 或手动创建 Express 项目结构。
-- 安装所需的依赖，如`axios`用于 HTTP 请求，`xml2js`用于 XML 解析。
+**Q: How will your system perform with 100 users? 10,000 users? 1,000,000 users?**
+A: With 100 users, the system is likely to perform without any noticeable lag. For 10,000 users, it may require optimization, including load balancing and caching, to maintain performance. With 1,000,000 users, a significant re-architecture would be necessary, including horizontal scaling, utilizing a Content Delivery Network (CDN), and implementing advanced caching and indexing strategies.
 
-#### 2. 设计 API 路由
+**Q: What documentation, websites, papers, etc did you consult in doing this assignment?**
+A: For this assignment, I consulted the official documentation of React, Express, Axios, Cheerio, and xml2js. Additionally, I utilized various online forums and resources, such as Stack Overflow, to solve specific problems.
 
-- 创建一个`/search`端点，用于接收 SKU 并返回相应的产品信息。
+**Q: How long did you spend on this exercise? If you had unlimited more time to spend on this, how would you spend it and how would you prioritize each item?**
+A: The exercise took approximately 2 hours. If I had unlimited time, I would prioritize refactoring the code for better maintainability, implementing extensive testing, enhancing the user interface, optimizing for performance, and adding features like keyword searches, filtering, and pagination.
 
-#### 3. 数据获取和解析
+**Q: If you were to critique your code, what would you have to say about it?**
+A: The code is functional but could benefit from further modularization, especially in the backend. More comprehensive error handling and logging would also be beneficial for production readiness.
 
-- 在`/search`端点中，使用`axios`从给定的 XML 链接获取数据。
-- 使用`xml2js`解析 XML，并从中提取所需的 SKU、标题、作者和价格信息。
-
-#### 4. 错误处理
-
-- 添加适当的错误处理，例如当 SKU 未找到或 XML 解析失败时。
-
-### 部分 2：创建简单的 Web 界面（使用 React）
-
-#### 1. 创建 React 应用
-
-- 使用 Create React App 或自定义配置设置 React 项目。
-
-#### 2. 设计用户界面
-
-- 创建一个输入框供用户输入 SKU。
-- 创建一个按钮用于触发搜索。
-- 创建一个区域展示搜索结果。
-
-#### 3. 实现 SKU 搜索功能
-
-- 在用户触发搜索时，通过 React 应用中的`fetch`或`axios`向后端的`/search`端点发送请求。
-- 将结果展示在用户界面上。
-
-#### 4. 错误和加载状态处理
-
-- 添加加载状态以在搜索过程中给用户反馈。
-- 添加错误处理以在请求失败时通知用户。
-
-### 部分 3：部署和文档编写
-
-#### 1. 创建 shell 脚本
-
-- 编写`build.sh`以构建前端和后端。
-- 编写`run.sh`以启动服务器。
-
-#### 2. 编写 README 文件
-
-- 按照任务要求详细回答所有问题，并记录你的开发过程和决策。
-
-#### 3. 代码优化和测试
-
-- 根据需要进行代码重构和优化。
-- 可以编写单元测试以确保代码质量。
-
-### 最后注意事项：
-
-- 请确保遵循任务要求的限制，例如不与他人积极合作，并记录所使用的开源软件。
-- 记得在合适的时候进行版本控制，使用 git 来管理你的项目。
-- 按照你的工作流程和时间表进行分阶段开发和测试，确保每个部分的顺利完成。
-
-这个计划覆盖了前后端开发的大部分方面，你可以根据自己的需求进行调整和优化。
+**Q: How can you change your system to be updated to support simple keyword searches?**
+A: To support simple keyword searches, I would need to create a search algorithm that could find matches within the sitemap based on the provided keywords. This might require pre-processing the sitemap data into a searchable index or database. On the frontend, I would modify the user interface to accept keywords instead of SKU, and the backend would have to handle this new search logic.
