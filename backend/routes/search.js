@@ -13,9 +13,9 @@ function fetchProductDetails(url) {
     var author = $('#CBD-ProductData > div > div.CBD-ProductDetailAuthor')
       .text()
       .replace('By: ', '');
-    var price = $(
-      '#primary-action-box > form.thePrimaryAction > div > span.CBD-ProductDetailPriceBox > span.CBD-ProductDetailActionPrice'
-    ).text();
+    var price = $('span.CBD-ProductDetailActionPrice')
+      .text()
+      .replace('Our Price', '');
     return {
       title: title,
       author: author,
