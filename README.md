@@ -1,3 +1,5 @@
+![demo](images/demo.png)
+
 **Q: How does your system work? (if not addressed in comments in source)**
 A: The system is a full-stack application that consists of a frontend created with React and a backend developed using Express. The frontend allows the user to input a SKU and sends a request to the backend. The backend then fetches data from the provided sitemap XML, finds the URL associated with the SKU, and extracts the product details such as title, author, and price from the HTML of the found URL. The details are then sent back to the frontend and displayed to the user.
 
